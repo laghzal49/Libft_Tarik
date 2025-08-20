@@ -1,17 +1,6 @@
 #include <stdlib.h>
+#include "libft.h"
 
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (*s)
-	{
-		s++;
-		i++;
-	}
-	return (i);
-}
 char	*ft_strdup(const char *s1)
 {
 	char	*ptr;

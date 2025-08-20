@@ -10,6 +10,8 @@ char *ft_strnstr(const char *word,const char *tofind,size_t len)
 		return (char *)word;
 	while (word[i] && i < len)
 	{
+#include "libft.h"
+
 		j = 0;
 		while ((i + j) < len && word[i + j] == tofind[j] && tofind[j])
 		{

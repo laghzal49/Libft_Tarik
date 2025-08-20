@@ -1,5 +1,6 @@
 #include <string.h>
 
+#include "libft.h"
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*p;
@@ -10,6 +11,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n > 0)
 	{
 		if (*p == find)
+
 			return ((void *)p);
 		p++;
 		n--;

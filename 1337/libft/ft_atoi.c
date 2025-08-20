@@ -1,3 +1,4 @@
+#include "libft.h"
 int	ft_atoi(const char *n)
 {
 	int	i;
@@ -10,6 +11,7 @@ int	ft_atoi(const char *n)
 	i = 0;
 	while (n[j])
 	{
+
 		if (n[j] == ' ' || (n[j] >= '\t' && n[j] <= '\r'))
 		{
 			j++;

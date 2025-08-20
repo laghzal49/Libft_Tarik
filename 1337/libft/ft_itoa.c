@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "libft.h"
 
 size_t ft_get_len(long long n)
 {

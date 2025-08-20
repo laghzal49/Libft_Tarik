@@ -10,20 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (*str)
-	{
-		i++;
-		str++;
-	}
-	return (i);
-}
 
 int	is_sep(char ch, char c)
 {
@@ -55,25 +44,25 @@ int	word(const char *s, char c)
 	return (count);
 }
 
-char	*ft_strdup(const char *s, char sep)
+char	*copy(const char *s, char sep)
 {
-	char	*mal;
-	int		i;
+    char	*mal;
+    int		i;
 
-	i = 0;
-	while (s[i] && s[i] != sep)
-		i++;
-	mal = malloc(i + 1);
-	if (!mal)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != sep)
-	{
-		mal[i] = s[i];
-		i++;
-	}
-	mal[i] = '\0';
-	return (mal);
+    i = 0;
+    while (s[i] && s[i] != sep)
+        i++;
+    mal = malloc(i + 1);
+    if (!mal)
+        return NULL;
+    i = 0;
+    while (s[i] && s[i] != sep)
+    {
+        mal[i] = s[i];
+        i++;
+    }
+    mal[i] = '\0';
+    return mal;
 }
 
 char	**ft_split(const char *s, char c)
@@ -94,7 +83,7 @@ char	**ft_split(const char *s, char c)
 		while (s[i] == c)
 			i++;
 		if (s[i] && s[i] != c)
-			result[j++] = ft_strdup(s + i, c);
+			result[j++] = copy(s + i, c);
 		while (s[i] && s[i] != c)
 			i++;
 	}

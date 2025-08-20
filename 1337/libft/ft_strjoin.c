@@ -10,19 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-
-int	ft_strlen(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (str[count])
-	{
-		count++;
-	}
-	return (count);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

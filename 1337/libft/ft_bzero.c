@@ -10,17 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stddef.h>
 
-void	explicit_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	volatile unsigned char	*ptr;
-
-	ptr = s;
-	while (n)
-	{
-		ptr = 0;
-		ptr++;
-		n--;
-	}
+	ft_memset(s,0,n);
 }
