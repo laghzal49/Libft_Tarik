@@ -20,7 +20,7 @@ int ft_lstsize(t_list *lst)
     while (lst)
     {
         i++;
-        lst->next;
+        lst = lst->next;
     }
     return (i);
 }
