@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laghzal <laghzal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:36:15 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/14 19:18:42 by laghzal          ###   ########.fr       */
+/*   Updated: 2025/08/24 19:02:25 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 #include <stddef.h>
 
 size_t	ft_strlen(const char *s)

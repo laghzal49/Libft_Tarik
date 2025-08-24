@@ -1,54 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/24 18:39:54 by laaghzal          #+#    #+#             */
+/*   Updated: 2025/08/24 18:39:55 by laaghzal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include "libft.h"
+
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*d;
-	char	*b;
 	size_t	i;
-	
-	b = (char *) src;
-	d = (char *) dest;
-	i = 0;
-	if (!dest || !src)
 
+	if (!dest && !src)
 		return (NULL);
-	if (d < b)
+	if (dest < src)
 	{
-		while(i < n)
+		i = 0;
+		while (i < n)
 		{
-			d[i] = b[i];
+			((char *)dest)[i] = ((char *)src)[i];
 			i++;
 		}
 	}
-	i = n;
-	if (d > b)
+	else if (dest > src)
 	{
+		i = n;
 		while (i > 0)
 		{
+			((char *)dest)[i - 1] = ((char *)src)[i - 1];
 			i--;
-			d[i] = b[i];
 		}
 	}
 	return (dest);
 }
-/*#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-    char src[20] = "zokmosimo";
-    //char srd[20] = "zokmosimo";
-
-    //printf("src lawel: %s\n", src);
-
-    char *s = ft_memmove(src + 3, src, 6);
-    printf("%s",s);
-    //memmove(srd + 3, srd, 6);
-
-    // Print from the start of both buffers
-    //printf("ft_memmove: %s\n", src);
-    //printf("memmove: %s\n", srd);
-
-    return 0;
-}
-*/

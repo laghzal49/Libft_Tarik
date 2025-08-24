@@ -3,41 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:41:09 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/21 17:42:19 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/24 18:46:12 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_atoi(const char *n)
 {
 	int	i;
-	int	b;
-	int	j;
 	int	sign;
-	
+	int	j;
+
+	i = 0;
 	sign = 1;
 	j = 0;
-	i = 0;
-	while (n[j])
+	while (n[j] && (n[j] == ' ' || (n[j] >= '\t' && n[j] <= '\r')))
+		j++;
+	if (n[j] == '-' || n[j] == '+')
 	{
-
-		if (n[j] == ' ' || (n[j] >= '\t' && n[j] <= '\r'))
-		{
-			j++;
-			continue;
-		}
-		if (n[j] == '-' || n[j] == '+')
-		{
-			if (n[j] == '-')
-				sign *= -1;
-			j++;
-			continue;
-		}
-		b = (n[j] - '0') ;
-		i =i * 10 + b;
+		if (n[j] == '-')
+			sign = -1;
+		j++;
+	}
+	while (n[j] && (n[j] >= '0' && n[j] <= '9'))
+	{
+		i = i * 10 + (n[j] - '0');
 		j++;
 	}
 	return (i * sign);
