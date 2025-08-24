@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/24 19:45:41 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 20:04:09 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/08/24 19:42:12 by laaghzal          #+#    #+#             */
+/*   Updated: 2025/08/24 20:07:21 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*tmp;
+	t_list	*temp;
 
 	if (!lst || !del)
 		return ;
 	while (*lst)
 	{
-		tmp = (*lst)->next;
+		temp = (*lst)->next;
 		del((*lst)->content);
 		free(*lst);
-		*lst = tmp;
+		*lst = temp;
 	}
 }
