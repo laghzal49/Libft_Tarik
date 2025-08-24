@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 19:26:29 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 19:33:46 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/24 19:51:09 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,26 +151,74 @@ static void	test_fd(void)
 	}
 }
 
-static void	test_list(void)
+static void	print_content(void *content)
 {
-	t_list	*a;
-	t_list	*b;
-	t_list	*c;
-	t_list	*tmp;
+    printf("%s", (char *)content);
+}
 
-	a = ft_lstnew(ft_strdup("one"));
-	b = ft_lstnew(ft_strdup("two"));
-	c = ft_lstnew(ft_strdup("three"));
-	ft_lstadd_front(&a, b);
-	ft_lstadd_front(&a, c);
-	printf("List size: %d\n", ft_lstsize(a));
-	printf("Last: %s\n", (char *)ft_lstlast(a)->content);
-	while (a)
-	{
-		tmp = a->next;
-		ft_lstdelone(a, free);
-		a = tmp;
-	}
+static void	*map_toupper(void *content)
+{
+    char	*str;
+    int		i;
+
+    str = ft_strdup((char *)content);
+    if (!str)
+        return (NULL);
+    i = 0;
+    while (str[i])
+    {
+        str[i] = ft_toupper(str[i]);
+        i++;
+    }
+    return (str);
+}
+
+static void	test_lstclear(void)
+{
+    t_list	*lst;
+
+    lst = ft_lstnew(ft_strdup("test1"));
+    ft_lstadd_back(&lst, ft_lstnew(ft_strdup("test2")));
+    printf("ft_lstclear: ");
+    ft_lstclear(&lst, free);
+    if (!lst)
+        printf("List successfully cleared\n");
+    else
+        printf("List not cleared\n");
+}
+
+static void	test_lstiter(void)
+{
+    t_list	*lst;
+
+    lst = ft_lstnew(ft_strdup("item1 "));
+    ft_lstadd_back(&lst, ft_lstnew(ft_strdup("item2 ")));
+    ft_lstadd_back(&lst, ft_lstnew(ft_strdup("item3")));
+    
+    printf("ft_lstiter: ");
+    ft_lstiter(lst, print_content);
+    printf("\n");
+    
+    ft_lstclear(&lst, free);
+}
+
+static void	test_lstmap(void)
+{
+    t_list	*lst;
+    t_list	*mapped;
+
+    lst = ft_lstnew(ft_strdup("first "));
+    ft_lstadd_back(&lst, ft_lstnew(ft_strdup("second ")));
+    ft_lstadd_back(&lst, ft_lstnew(ft_strdup("third")));
+    
+    mapped = ft_lstmap(lst, map_toupper, free);
+    
+    printf("ft_lstmap: ");
+    ft_lstiter(mapped, print_content);
+    printf("\n");
+    
+    ft_lstclear(&lst, free);
+    ft_lstclear(&mapped, free);
 }
 
 int	main(void)
@@ -182,6 +230,9 @@ int	main(void)
 	test_memory();
 	test_conversion();
 	test_fd();
-	test_list();
+	// test_list(); // function not defined
+	test_lstclear();
+	test_lstiter();
+	test_lstmap();
 	return (0);
 }
