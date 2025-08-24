@@ -5,7 +5,7 @@ int main()
 	int *p = &a;
 	printf("%d",*p);
 	*p = 100;
-	printf("%p",*a);
+	printf("%d", a);
 }
 
 // Question:

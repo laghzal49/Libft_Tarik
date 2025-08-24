@@ -7,6 +7,8 @@ typedef struct Node {
 } Node;
 int main(int ac, char **av)
 {
+	(void)ac;
+	(void)av;
 	Node root;
 	root.x = 15;
 	root.next = malloc(sizeof(Node));

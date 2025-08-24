@@ -19,9 +19,13 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
+test: $(NAME)
+	$(CC) $(CFLAGS) -o test_main main.c main_utils.c $(NAME)
+
 clean:
 	rm -f $(OBJ)
 
-fclean:
-	rm -f $(NAME)
+fclean: clean
+	rm -f $(NAME) test_main
+
 re: fclean all
