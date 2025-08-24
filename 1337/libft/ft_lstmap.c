@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 19:55:00 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 20:01:47 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/25 00:29:32 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		}
 		ft_lstadd_back(&new_list, new_node);
 		lst = lst->next;
-    }
+	}
 	return (new_list);
 }
