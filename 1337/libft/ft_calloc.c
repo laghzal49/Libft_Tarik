@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include "libft.h"
 
 void ft_bzero(void *s, size_t n)
 {
@@ -22,8 +23,6 @@ void ft_bzero(void *s, size_t n)
 	{
 		*ptr = 0;
 		ptr++;
-#include "libft.h"
-
 	}
 }
 void *ft_calloc(size_t nmemb, size_t size)
