@@ -67,5 +67,19 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	p[i] = '\0';
 	return (p);
 }
-char	*ft_strchr(char const *s, int c);
+char	*ft_strchr(char const *s, int c)
+{
+	const char	*p;
+	
+	p = (char *)s;
+	while (*p)
+	{
+		if (*p == c)
+			return (char *)p;
+		p++;
+	}
+	if ((char)c == '\0')
+		return (char *)p;
+	return (NULL);
+}
 void	*ft_memcpy(void *dst, void *src, size_t n);
