@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 00:17:03 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/29 00:35:12 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/29 15:10:45 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len2;
 	size_t	len;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
+	if (!s1)
+		return (ft_substr(s2, 0, ft_strlen(s2)));
+	if (!s2)
+		return (ft_substr(s1, 0, ft_strlen(s1)));
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	len = len1 + len2;
