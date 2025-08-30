@@ -1,4 +1,4 @@
-# LIBFT FUNCTION DOCUMENTATION
+# LIBFT FUNCTION DOCUMENTATION 	
 
 ## Overview
 This document provides a comprehensive explanation of all functions implemented in the libft library for 42 school BY Tarik Laghzal!.
