@@ -39,11 +39,17 @@ run_size_benchmark() {
     
     # Create test program
     cat > temp_benchmark.c << EOF
-#include "libft.h"
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
+
+// Function prototypes for standalone compilation
+size_t ft_strlen(const char *s);
+void *ft_memcpy(void *dst, const void *src, size_t n);
+char *ft_strdup(const char *s1);
+void *ft_calloc(size_t count, size_t size);
 
 #define ITERATIONS 100000
 #define SIZE $size

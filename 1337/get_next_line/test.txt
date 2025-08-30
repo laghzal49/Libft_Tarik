@@ -1,4 +1,0 @@
-Hello, world!
-This is a test.
-Another line.
-tarik
