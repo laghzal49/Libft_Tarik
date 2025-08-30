@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:40:38 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:56:09 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:55:10 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*p;
 	unsigned char	find;
 
+	if (!s)
+		return (NULL);
 	p = (unsigned char *)s;
 	find = (unsigned char)c;
 	while (n > 0)

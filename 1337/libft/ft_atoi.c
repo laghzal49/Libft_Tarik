@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:41:09 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:46:12 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:55:10 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_atoi(const char *n)
 	int	sign;
 	int	j;
 
+	if (!n)
+		return (0);
 	i = 0;
 	sign = 1;
 	j = 0;

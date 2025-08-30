@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:45 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:37:51 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:55:10 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *word, const char *tofind, size_t len)
 	size_t	j;
 	size_t	tofind_len;
 
+	if (!word || !tofind)
+		return (NULL);
 	if (!tofind[0])
 		return ((char *)word);
 	tofind_len = 0;
