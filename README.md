@@ -1,165 +1,123 @@
-# 🏆 Libft - The #1 Implementation on GitHub
+# Libft
 
-[![42 Project](https://img.shields.io/badge/42-Project-blue)](https://42.fr)
-[![Norminette](https://img.shields.io/badge/Norminette-100%25-green)](https://github.com/42School/norminette)
-[![Performance](https://img.shields.io/badge/Performance-40%25_Faster-red)](./benchmark.c)
-[![Safety](https://img.shields.io/badge/Memory-100%25_Safe-orange)](./GITHUB_COMPARISON.md)
-[![GitHub Stars](https://img.shields.io/badge/Quality-Best_on_GitHub-gold)](./GITHUB_COMPARISON.md)
+[![42 School](https://img.shields.io/badge/42-School-000000?style=flat&logo=42&logoColor=white)](https://42.fr)
+[![Norminette](https://img.shields.io/badge/Norminette-Passing-success)](https://github.com/42School/norminette)
+[![Made with C](https://img.shields.io/badge/Made%20with-C-blue)](https://en.wikipedia.org/wiki/C_(programming_language))
 
-> **🥇 Beats 10,000+ GitHub libft implementations in performance, safety, and quality**
+A comprehensive implementation of the C standard library functions as part of the 42 School curriculum. This project recreates essential libc functions with the `ft_` prefix, providing a solid foundation for future C projects.
 
-## 🔥 **GITHUB DOMINATION STATS**
-- **⚡ 40% faster** than ANY other GitHub libft
-- **🛡️ ONLY libft** with 100% NULL protection  
-- **🏆 #1 in code quality** among thousands of implementations
-- **📊 Advanced features** no other libft has
+## 📋 About
 
-## 🎯 Why This Libft Dominates GitHub
+Libft is the first project at 42 School, where students must recreate various functions from the C standard library. This implementation includes all mandatory functions plus bonus linked list operations, following the strict 42 coding standards (Norminette).
 
-After analyzing **10,000+ libft repositories**, this implementation stands alone:
+## 🛠️ Functions Implemented
 
-- 🏎️ **40% faster** than the most popular GitHub implementations
-- 🛡️ **ONLY implementation** with 100% crash-proof NULL protection
-- ⚡ **Advanced optimizations** using word-aligned memcpy operations
-- 🎨 **Production-grade code** with zero compilation warnings
-- ✅ **Professional features** that 99.9% of GitHub libfts lack
+### Part 1 - Libc Functions
+- **Character checks**: `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`
+- **String manipulation**: `ft_strlen`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strlcpy`, `ft_strlcat`
+- **Memory operations**: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`
+- **Conversions**: `ft_atoi`, `ft_tolower`, `ft_toupper`
+- **Memory allocation**: `ft_calloc`, `ft_strdup`
 
-## 📊 **vs. Popular GitHub Implementations**
+### Part 2 - Additional Functions
+- **String utilities**: `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_itoa`, `ft_strmapi`, `ft_striteri`
+- **File descriptor operations**: `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
 
-| Repository | Stars | NULL Safety | Performance | Features | Score |
-|------------|-------|-------------|-------------|----------|-------|
-| **🏆 THIS LIBFT** | - | ✅ 100% | ⚡ +40% | 🚀 Advanced | **10/10** |
-| Popular libft #1 | 2.1k | ❌ 20% | 🐌 Baseline | 📝 Basic | 5/10 |
-| Popular libft #2 | 1.8k | ❌ 0% | 🐌 -15% | 📄 Minimal | 4/10 |
-| Popular libft #3 | 800+ | ❌ 10% | 🐌 -5% | 📚 Good docs | 6/10 |
-| **GitHub Average** | - | ❌ 15% | 🐌 -20% | 📄 README only | **4.5/10** |
+### Bonus - Linked List Functions
+- **List operations**: `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`
+- **List manipulation**: `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`
 
-*[📈 See full comparison](./GITHUB_COMPARISON.md)*
+## 🚀 Usage
 
-## 📊 Performance Comparison
-
-| Function | Standard libft | This libft | Speedup |
-|----------|---------------|------------|---------|
-| `ft_split` | Character loops | `memcpy` + pointers | **30% faster** |
-| `ft_strjoin` | Manual copying | Block `memcpy` | **25% faster** |
-| `ft_strdup` | While loops | Optimized `memcpy` | **40% faster** |
-| `ft_strlen` | Basic iteration | Cache-friendly | **15% faster** |
-
-## 🛡️ Safety Features
-
-Unlike 95% of libft implementations, this library is **crash-proof**:
-
-```c
-// ❌ Most libft repos crash on:
-ft_strlen(NULL);        // SEGMENTATION FAULT
-ft_strchr(NULL, 'x');   // SEGMENTATION FAULT
-
-// ✅ This libft handles gracefully:
-ft_strlen(NULL);        // Returns 0
-ft_strchr(NULL, 'x');   // Returns NULL
-```
-
-## 🚀 Quick Start
+### Compilation
 
 ```bash
-# Clone and build
-git clone https://github.com/yourusername/libft-optimized.git
-cd libft-optimized
+# Compile the library
 make
 
-# Run performance benchmarks
-make benchmark
-./benchmark
+# Compile with bonus functions
+make bonus
 
-# Run comprehensive tests
-make test
-./test_suite
+# Clean object files
+make clean
+
+# Clean everything
+make fclean
+
+# Recompile
+make re
+```
+
+### Integration
+
+```c
+#include "libft.h"
+
+int main(void)
+{
+    char *str = ft_strdup("Hello, 42!");
+    char **split = ft_split("one,two,three", ',');
+    
+    ft_putstr_fd(str, 1);
+    // ... use your functions
+    
+    free(str);
+    // Don't forget to free allocated memory!
+    return (0);
+}
 ```
 
 ## 📁 Project Structure
 
 ```
 libft/
-├── src/              # Source files
-│   ├── memory/       # Memory functions (ft_memcpy, ft_memset, etc.)
-│   ├── string/       # String functions (ft_strlen, ft_strchr, etc.)
-│   ├── conversion/   # Conversion functions (ft_atoi, ft_itoa)
-│   └── list/         # Bonus list functions
-├── include/          # Header files
-├── tests/            # Comprehensive test suite
-├── benchmark/        # Performance testing
-└── docs/             # Documentation
+├── ft_*.c              # Function implementations
+├── libft.h             # Header file with prototypes
+├── Makefile            # Compilation rules
+├── README.md           # This file
+└── LICENSE             # License information
 ```
 
-## 🔧 Advanced Features
+## ⚡ Key Features
 
-### Memory Optimization
-- **Word-aligned copying** for large memory operations
-- **Pointer arithmetic** instead of array indexing
-- **Single-pass algorithms** where possible
+- **Norminette Compliant**: Follows 42 School coding standards
+- **Memory Safe**: Proper error handling and memory management
+- **Well Documented**: Clear and comprehensive header file
+- **Optimized**: Efficient implementations following best practices
+- **Bonus Content**: Complete linked list implementation
 
-### Error Handling
-- **Comprehensive NULL checks** on all functions
-- **Buffer overflow protection** in string functions
-- **Graceful failure modes** with meaningful return values
+## 🧪 Testing
 
-### Code Quality
-- **Advanced C patterns** (comma operator, const correctness)
-- **Consistent style** throughout codebase
-- **Professional documentation** with examples
+The library has been tested with various testers including:
+- [Libft Unit Test](https://github.com/alelievr/libft-unit-test)
+- [libft-war-machine](https://github.com/y3ll0w42/libft-war-machine)
+- [Francinette](https://github.com/xicodomingues/francinette)
 
-## 📚 Documentation
+## 🎯 42 Project Guidelines
 
-- [API Reference](./docs/API.md) - Complete function documentation
-- [Performance Guide](./docs/PERFORMANCE.md) - Optimization explanations
-- [Safety Features](./docs/SAFETY.md) - Security improvements
-- [Contributing](./docs/CONTRIBUTING.md) - How to contribute
+This implementation strictly follows:
+- **Norminette**: All files pass norm checks
+- **No global variables**: Clean, reentrant code
+- **Error handling**: Robust against edge cases
+- **Memory management**: No leaks or invalid access
 
-## 🎓 Educational Value
+## 📚 Learning Outcomes
 
-This libft serves as an excellent learning resource for:
-- **Memory optimization techniques**
-- **Safe C programming practices**
-- **Performance-conscious coding**
-- **Professional code organization**
-
-## 🏆 Recognition
-
-- ✅ **100/100** at 42 evaluation
-- ✅ **Zero norminette errors**
-- ✅ **Passes all known testers**
-- ✅ **Production-ready quality**
-
-## 📈 Benchmarks
-
-Run `make benchmark` to see performance comparisons:
-
-```
-🚀 LIBFT PERFORMANCE BENCHMARK
-================================
-
-Function        | Time (ms) | vs System
-----------------|-----------|----------
-ft_memcpy       |    45.23  |
-system memcpy   |    48.67  | 1.08x slower
-ft_strlen       |    12.45  |
-system strlen   |    15.23  | 1.22x slower
-```
-
-## 🤝 Contributing
-
-Contributions welcome! See [CONTRIBUTING.md](./docs/CONTRIBUTING.md)
+Through this project, I gained experience in:
+- Low-level C programming
+- Memory management and pointer manipulation
+- Data structure implementation (linked lists)
+- Code organization and documentation
+- Following strict coding standards
 
 ## 📄 License
 
-This project is open source. Feel free to use for learning and projects.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🤝 Contributing
 
-- 42 School for the challenge
-- The C programming community
-- Performance optimization resources
+While this is a school project, feedback and suggestions are welcome! Feel free to open an issue if you find any bugs or improvements.
 
 ---
 
-**Made with ❤️ for the 42 community and C programming enthusiasts**
+*Made with ☕ at 42 School*

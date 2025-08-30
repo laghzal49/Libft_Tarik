@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/laaghzal/Desktop/1337-C/1337/libft",
-      "program": "/home/laaghzal/Desktop/1337-C/1337/libft/build/Debug/outDebug",
+      "cwd": "/home/laaghzal/Desktop/1337-C",
+      "program": "/home/laaghzal/Desktop/1337-C/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

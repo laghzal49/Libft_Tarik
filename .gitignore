@@ -1,44 +1,73 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
 
-## User settings
-xcuserdata/
+# Linker output
+*.ilk
+*.map
+*.exp
 
-## Obj-C/Swift specific
-*.hmap
+# Precompiled Headers
+*.gch
+*.pch
 
-## App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
 
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
 
-Carthage/Build/
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
 
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+# libft specific
+libft.a
+test
+*.test
+
+# VS Code
+.vscode/
+
+# Test files
+main.c
+test*.c
+benchmark.c
+tester/
+tests/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
