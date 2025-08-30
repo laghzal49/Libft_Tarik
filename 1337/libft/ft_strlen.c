@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:36:15 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/24 19:02:25 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:50:49 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;

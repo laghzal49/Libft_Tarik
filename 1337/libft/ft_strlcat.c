@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:39:32 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 20:22:22 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:48:06 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	src_len;
 	size_t	copy_len;
 
+	if (!dst || !src)
+		return (0);
+	if (size == 0)
+		return (ft_strlen(src));
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	if (size <= dst_len)

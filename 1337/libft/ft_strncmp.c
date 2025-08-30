@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:52 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 18:37:46 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:50:49 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
+	if (!s1 || !s2)
+		return (0);
 	i = 0;
 	if (n == 0)
 		return (0);
