@@ -6,17 +6,12 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:24:46 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/24 18:35:41 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 18:37:41 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-static int	is_sep(char ch, char c)
-{
-	return (ch == c);
-}
 
 static int	word(const char *s, char c)
 {
@@ -29,12 +24,12 @@ static int	word(const char *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (inword == 0 && !is_sep(s[i], c))
+		if (inword == 0 && s[i] != c)
 		{
 			count++;
 			inword = 1;
 		}
-		if (inword == 1 && is_sep(s[i], c))
+		if (inword == 1 && s[i] == c)
 			inword = 0;
 		i++;
 	}
@@ -62,28 +57,51 @@ static char	*copy(const char *s, char sep)
 	return (mal);
 }
 
-char	**ft_split(const char *s, char c)
+static void	free_split(char **arr, int j)
 {
-	char	**result;
-	int		i;
-	int		j;
+	while (j > 0)
+		free(arr[--j]);
+	free(arr);
+}
 
-	j = 0;
+static char	**fill_result(const char *s, char c, char **result)
+{
+	int	i;
+	int	j;
+
 	i = 0;
-	if (!s || !*s)
-		return (NULL);
-	result = malloc(sizeof(char *) * (word(s, c) + 1));
-	if (!result)
-		return (NULL);
+	j = 0;
 	while (s[i])
 	{
 		while (s[i] == c)
 			i++;
 		if (s[i] && s[i] != c)
-			result[j++] = copy(s + i, c);
+		{
+			result[j] = copy(s + i, c);
+			if (!result[j])
+			{
+				free_split(result, j);
+				return (NULL);
+			}
+			j++;
+		}
 		while (s[i] && s[i] != c)
 			i++;
 	}
 	result[j] = NULL;
 	return (result);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**result;
+	int		words;
+
+	if (!s)
+		return (NULL);
+	words = word(s, c);
+	result = malloc(sizeof(char *) * (words + 1));
+	if (!result)
+		return (NULL);
+	return (fill_result(s, c, result));
 }

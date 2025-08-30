@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:39:15 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:55:02 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 18:13:02 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ptr;
 	int		i;
 
+	if (!s || !f)
+		return (NULL);
 	ptr = malloc(ft_strlen(s) + 1);
 	if (!ptr)
 		return (NULL);

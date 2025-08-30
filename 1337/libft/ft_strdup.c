@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:39:45 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:50:24 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/30 18:37:43 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	int		len;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen(s1);
-	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	ptr = malloc(len + 1);
 	if (!ptr)
 		return (NULL);
 	i = 0;

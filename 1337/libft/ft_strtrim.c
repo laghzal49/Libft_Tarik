@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laghzal <laghzal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:25:02 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/14 17:54:57 by laghzal          ###   ########.fr       */
+/*   Updated: 2025/08/30 18:13:39 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int	in_set(char c, const char *set)
+static int	in_set(char c, const char *set)
 {
 	int	i;
 
@@ -27,23 +27,23 @@ int	in_set(char c, const char *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)// (123abcd123,123) == abcd
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new;
 	int		i;
 	int		start;
 	int		end;
 
-	start = 0;
-	end = ft_strlen(s1);
 	i = 0;
 	if (!s1 || !set)
 		return (NULL);
+	start = 0;
+	end = ft_strlen(s1);
 	while (s1[start] && in_set(s1[start], set))
 		start++;
 	while (start < end && in_set(s1[end - 1], set))
 		end--;
-	new = malloc(1 + end - start);
+	new = malloc(end - start + 1);
 	if (!new)
 		return (NULL);
 	while (start < end)
