@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:39:32 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 20:48:06 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/31 04:39:53 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,24 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
 	size_t	src_len;
-	size_t	copy_len;
+	size_t	i;
 
-	if (!dst || !src)
+	if (!src)
 		return (0);
-	if (size == 0)
-		return (ft_strlen(src));
-	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	if (size <= dst_len)
+	if (!dst || size == 0)
+		return (src_len);
+	dst_len = 0;
+	while (dst_len < size && dst[dst_len])
+		dst_len++;
+	if (dst_len >= size)
 		return (size + src_len);
-	copy_len = src_len;
-	if (dst_len + copy_len >= size)
-		copy_len = size - dst_len - 1;
-	ft_memcpy(dst + dst_len, src, copy_len);
-	dst[dst_len + copy_len] = '\0';
+	i = 0;
+	while (src[i] && dst_len + i < size - 1)
+	{
+		dst[dst_len + i] = src[i];
+		i++;
+	}
+	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }

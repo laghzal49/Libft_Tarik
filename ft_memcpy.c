@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:40:28 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/25 19:17:03 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/31 04:39:50 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*p;
+	unsigned char	*d;
 	unsigned char	*s;
 
 	if (!dest && !src)
 		return (NULL);
-	p = (unsigned char *)dest;
+	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	while (n)
-	{
-		*(p++) = *(s++);
-		n--;
-	}
+	while (n--)
+		*d++ = *s++;
 	return (dest);
 }

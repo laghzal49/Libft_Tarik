@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:39:25 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 20:50:49 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/31 04:39:52 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,22 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	len;
-	size_t	copy_len;
+	size_t	src_len;
+	size_t	i;
 
-	if (!dst || !src)
+	if (!src)
 		return (0);
-	len = ft_strlen(src);
-	if (size > 0)
+	src_len = ft_strlen(src);
+	if (!dst)
+		return (src_len);
+	if (size == 0)
+		return (src_len);
+	i = 0;
+	while (i < size - 1 && src[i])
 	{
-		copy_len = len;
-		if (copy_len >= size)
-			copy_len = size - 1;
-		ft_memcpy(dst, src, copy_len);
-		dst[copy_len] = '\0';
+		dst[i] = src[i];
+		i++;
 	}
-	return (len);
+	dst[i] = '\0';
+	return (src_len);
 }

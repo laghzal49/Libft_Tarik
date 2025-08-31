@@ -6,7 +6,7 @@
 /*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:24:46 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/30 20:11:15 by laaghzal         ###   ########.fr       */
+/*   Updated: 2025/08/31 04:39:53 by laaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,16 @@ static char	*extract_word(const char **s, char c)
 
 static void	free_split(char **arr, size_t count)
 {
-	while (count > 0)
-		free(arr[--count]);
+	size_t	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (i < count)
+	{
+		free(arr[i]);
+		i++;
+	}
 	free(arr);
 }
 
