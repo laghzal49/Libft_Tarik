@@ -3,31 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 17:40:38 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 20:55:10 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/16 09:28:19 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/18 09:32:14 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*p;
-	unsigned char	find;
+	unsigned char		*ptr;
+	unsigned char		ch;
+	size_t				i;
 
-	if (!s)
-		return (NULL);
-	p = (unsigned char *)s;
-	find = (unsigned char)c;
-	while (n > 0)
+	ptr = (unsigned char *)s;
+	ch = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		if (*p == find)
-			return ((void *)p);
-		p++;
-		n--;
+		if (ptr[i] == ch)
+			return ((void *)&ptr[i]);
+		i++;
 	}
 	return (NULL);
 }

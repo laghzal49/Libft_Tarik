@@ -3,51 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 17:25:02 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/30 18:13:39 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/17 10:54:59 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/17 18:56:44 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	in_set(char c, const char *set)
+static int	is_it(const char *set, const char c)
 {
-	int	i;
-
-	i = 0;
-	while (set[i])
+	while (*set)
 	{
-		if (set[i] == c)
+		if (*set == c)
 			return (1);
-		i++;
-	}
+		set++;
+	}	
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	char	*new;
-	int		i;
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
+	size_t	i;
+	char	*ptr;
 
-	i = 0;
 	if (!s1 || !set)
 		return (NULL);
 	start = 0;
-	end = ft_strlen(s1);
-	while (s1[start] && in_set(s1[start], set))
+	while (s1[start] && is_it(set, s1[start]))
 		start++;
-	while (start < end && in_set(s1[end - 1], set))
+	end = ft_strlen(s1);
+	while (end > start && is_it(set, s1[end - 1]))
 		end--;
-	new = malloc(end - start + 1);
-	if (!new)
+	ptr = malloc((end - start) + 1);
+	if (!ptr)
 		return (NULL);
+	i = 0;
 	while (start < end)
-		new[i++] = s1[start++];
-	new[i] = '\0';
-	return (new);
+		ptr[i++] = s1[start++];
+	ptr[i] = '\0';
+	return (ptr);
 }

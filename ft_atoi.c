@@ -3,36 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 17:41:09 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/31 05:16:04 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/21 15:46:28 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/21 16:25:04 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *n)
+static int	ft_overf(long max, long result, int s)
 {
-	int	i;
-	int	sign;
-	int	j;
+	if (max > result && s > 0)
+		return (-1);
+	if (max > result && s < 0)
+		return (0);
+	return (1);
+}
 
-	i = 0;
-	sign = 1;
-	j = 0;
-	while (n[j] && (n[j] == ' ' || (n[j] >= '\t' && n[j] <= '\r')))
-		j++;
-	if (n[j] == '-' || n[j] == '+')
+int	ft_atoi(const char *str)
+{
+	int		a;
+	int		signe;
+	long	result;
+	long	max;
+
+	a = 0;
+	signe = 1;
+	result = 0;
+	while (str[a] == ' ' || (str[a] >= '\t' && str[a] <= '\r'))
+		a++;
+	if (str[a] == '-' || str[a] == '+')
 	{
-		if (n[j] == '-')
-			sign = -1;
-		j++;
+		if (str[a] == '-')
+			signe = -1;
+		a++;
 	}
-	while (n[j] && (n[j] >= '0' && n[j] <= '9'))
+	while (str[a] >= '0' && str[a] <= '9')
 	{
-		i = i * 10 + (n[j] - '0');
-		j++;
+		max = result;
+		result = result * 10 +(str[a] - 48);
+		if (ft_overf(max, result, signe) != 1)
+			return (ft_overf(max, result, signe));
+		a++;
 	}
-	return (i * sign);
+	return (result * signe);
 }

@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laghzal <laghzal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 17:18:14 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/14 17:55:13 by laghzal          ###   ########.fr       */
+/*   Created: 2025/10/16 22:12:24 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/19 11:56:44 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <unistd.h>
-
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
-	return ;
 }

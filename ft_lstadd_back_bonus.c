@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/24 01:40:04 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:30:46 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/18 11:01:00 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/18 16:31:35 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	last = *lst;
-	while (last->next)
+	while (last->next != NULL)
 		last = last->next;
 	last->next = new;
 }

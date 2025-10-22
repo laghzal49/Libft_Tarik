@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 17:39:39 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/24 18:49:46 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/17 18:40:11 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/19 11:57:13 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	i;
 
 	i = 0;
+	if (!s || !f)
+		return ;
 	while (s[i])
 	{
-		f(i, &s[i]);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }

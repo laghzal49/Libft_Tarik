@@ -3,62 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 17:40:46 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 18:37:45 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/17 15:42:46 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/17 19:12:15 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static size_t	ft_get_len(long long n)
+static int	ilen(long num)
 {
 	size_t	len;
 
 	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n)
-	{
+	if (num < 0)
 		len++;
-		n /= 10;
+	if (num == 0)
+		len++;
+	while (num != 0)
+	{
+		num /= 10;
+		len++;
 	}
 	return (len);
 }
 
-static void	ft_fill(char *p, long long num, size_t len)
+static char	*alloc(long nbr, int i, char *str)
 {
-	if (num == 0)
+	if (nbr == 0)
+		str[0] = '0';
+	while (nbr != 0)
 	{
-		p[0] = '0';
-		return ;
+		str[i] = ((nbr % 10) + 48);
+		i--;
+		nbr /= 10;
 	}
-	if (num < 0)
-	{
-		p[0] = '-';
-		num = -num;
-	}
-	while (num > 0)
-	{
-		p[--len] = (num % 10) + '0';
-		num /= 10;
-	}
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	long long	num;
-	size_t		len;
-	char		*p;
+	int		len;
+	char	*ptr;
+	long	nbr;
 
-	num = n;
-	len = ft_get_len(num);
-	p = malloc(len + 1);
-	if (!p)
+	nbr = n;
+	len = ilen(nbr);
+	ptr = malloc(len + 1);
+	if (!ptr)
 		return (NULL);
-	p[len] = '\0';
-	ft_fill(p, num, len);
-	return (p);
+	ptr[len] = '\0';
+	if (n < 0)
+	{
+		ptr[0] = '-';
+		nbr *= -1;
+	}
+	ptr = alloc(nbr, len - 1, ptr);
+	return (ptr);
 }

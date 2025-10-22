@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laghzal <laghzal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 17:24:52 by laghzal           #+#    #+#             */
-/*   Updated: 2025/08/14 17:51:14 by laghzal          ###   ########.fr       */
+/*   Created: 2025/10/16 21:49:41 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/19 11:56:55 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <unistd.h>
-
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	if (!str)
+		return ;
+	while (*str)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		write(fd, str, 1);
+		str++;
 	}
-	return ;
 }

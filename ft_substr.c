@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laaghzal <laaghzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlaghzal <tlaghzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/24 18:52:41 by laaghzal          #+#    #+#             */
-/*   Updated: 2025/08/30 18:13:18 by laaghzal         ###   ########.fr       */
+/*   Created: 2025/10/16 22:14:41 by tlaghzal          #+#    #+#             */
+/*   Updated: 2025/10/19 09:48:28 by tlaghzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	size_t	s_len;
-	char	*result;
+	char	*ptr;
+	size_t	tlen;
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
+	tlen = ft_strlen(s);
+	if (start >= tlen)
 		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	result = malloc(len + 1);
-	if (!result)
+	if (len > tlen - start)
+		len = tlen - start;
+	ptr = malloc(len + 1);
+	if (!ptr)
 		return (NULL);
-	ft_memcpy(result, s + start, len);
-	result[len] = '\0';
-	return (result);
+	ft_memcpy(ptr, s + start, len);
+	ptr[len] = '\0';
+	return (ptr);
 }
